@@ -8,6 +8,8 @@
 <meta name="apple-mobile-web-app-title" content="VetScan USG">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#0d1b3e">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon.png">
 <title>VetScan USG — </title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
@@ -530,6 +532,15 @@ function resetAll(){
 document.getElementById("pt-date").valueAsDate=new Date();
 buildTabs();
 renderOrgan();
+</script>
+<script>
+if("serviceWorker" in navigator){
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("sw.js")
+      .then(() => console.log("SW registered"))
+      .catch(e => console.log("SW error", e));
+  });
+}
 </script>
 </body>
 </html>
