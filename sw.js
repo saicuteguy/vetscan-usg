@@ -1,8 +1,8 @@
-const CACHE = "vetscan-v1";
+const CACHE = "pradarsh-v1";
 const FILES = [
-  "/vetscan-usg/",
-  "/vetscan-usg/index.html",
-  "/vetscan-usg/manifest.json"
+  "/pradarsh/",
+  "/pradarsh/index.html",
+  "/pradarsh/manifest.json"
 ];
 self.addEventListener("install", e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)));
