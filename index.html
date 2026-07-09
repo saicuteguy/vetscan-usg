@@ -478,13 +478,15 @@ function renderO(){
           <button onclick="setViz('Not Visualised')" style="padding:5px 10px;border-radius:8px;border:1px solid var(--red);font-size:11px;font-weight:600;cursor:pointer;background:${viz==='Not Visualised'?'var(--red)':'transparent'};color:${viz==='Not Visualised'?'white':'var(--red)'}">✗ NV</button>
         </div>
       </div>
-      ${isNV?`<div style="text-align:center;padding:16px;color:var(--mgray);font-size:13px;background:var(--lgray);border-radius:10px;margin-bottom:10px">Not Visualised — organ not assessable</div>`:`<div class="fg">${o.ps.map(p=>rF(o.id,p,sv2)).join("")}</div>
+      ${isNV
+        ?`<div style="text-align:center;padding:16px;color:var(--mgray);font-size:13px;background:var(--lgray);border-radius:10px;margin-bottom:10px">Not Visualised — organ not assessable on this examination</div>`
+        :`<div class="fg">${o.ps.map(p=>rF(o.id,p,sv2)).join("")}</div>`
+      }
       <div class="btns">
         ${cur>0?`<button class="btn btn-s" onclick="go(${cur-1})">← Back</button>`:""}
         <button class="btn btn-s" onclick="clrO()">↺ Clear</button>
         <button class="btn btn-p" onclick="doneO()">Save &amp; Next →</button>
       </div>
-      `}
     </div>`;
 }
 
