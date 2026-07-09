@@ -569,7 +569,9 @@ function genReport(){
       const abn=!isN(v);
       if(abn) hasAbn=true;
       const unit=p.t==="n"?(p.ph&&p.ph.match(/^(cm|mm)$/)?` ${p.ph}`:""):"";
-      params+=`<div style="margin-bottom:3px"><span style="color:var(--mgray);font-size:10px">${p.lb}:</span> <b>${v}${unit}</b></div>`;
+      // Only show measurement values and abnormal findings in params
+      if(p.t==="n"&&v) params+=`<div style="margin-bottom:2px;font-size:10px"><span style="color:var(--mgray)">${p.lb}:</span> <b>${v}${unit}</b></div>`;
+      else if(abn) params+=`<div style="margin-bottom:2px;font-size:10px"><span style="color:var(--mgray)">${p.lb}:</span> <b style="color:var(--red)">${v}</b></div>`;
       if(abn) findings+=`<span class="abn-tag">${v}${unit}</span> `;
       else findings+=`<span class="norm-tag">WNL</span> `;
       if(p.df&&p.df[v]){
@@ -613,8 +615,11 @@ function genReport(){
 
   html+=`
   <div class="imp-box">
-    <div class="imp-title">Overall Impression / Diagnosis</div>
-    <div class="imp-body">${hasAbn?"The ultrasonographic examination reveals the findings detailed above. Clinical correlation with haematology, serum biochemistry, urinalysis, and histopathology/cytology is recommended for definitive diagnosis. Ultrasonographic findings should not be interpreted in isolation.":"No significant ultrasonographic abnormalities detected. All visualised organs appear within normal limits for species and age. Clinical correlation recommended."}</div>
+    <div class="imp-title" style="display:flex;align-items:center;justify-content:space-between">
+      <span>Overall Impression / Diagnosis</span>
+      <button onclick="genAIImpression()" id="ai-btn" style="background:var(--gold);color:var(--navy);border:none;border-radius:6px;padding:4px 10px;font-size:11px;font-weight:700;cursor:pointer">✦ AI Generate</button>
+    </div>
+    <div class="imp-body" id="imp-body">${hasAbn?"Ultrasonographic examination reveals the findings detailed above. Clinical correlation with haematology, serum biochemistry, urinalysis, and histopathology/cytology is recommended for definitive diagnosis.":"No significant ultrasonographic abnormalities detected. All visualised organs appear within normal limits for species and age."}</div>
   </div>
   <div class="rec-box">
     <div class="rec-title">Recommendations / Follow-up Imaging</div>
@@ -643,6 +648,65 @@ function backForm(){
   document.getElementById("report").style.display="none";
   document.getElementById("rep-bar").style.display="none";
   document.getElementById("app").style.display="flex";
+}
+
+async function genAIImpression(){
+  const btn=document.getElementById("ai-btn");
+  const box=document.getElementById("imp-body");
+  if(!btn||!box) return;
+  btn.textContent="⏳ Generating...";
+  btn.disabled=true;
+  box.innerHTML='<span style="color:var(--mgray);font-style:italic">Generating clinical impression...</span>';
+
+  // Collect all findings
+  let findings=[];
+  OR.forEach(organ=>{
+    const d=D[organ.id];
+    if(!d) return;
+    const viz=d._viz||"Visualised";
+    if(viz==="Not Visualised"){findings.push(`${organ.lb}: Not Visualised`);return;}
+    organ.ps.forEach(p=>{
+      const v=d[p.id];
+      if(!v||p.t==="txt") return;
+      if(!isN(v)) findings.push(`${organ.lb} — ${p.lb}: ${v}`);
+    });
+  });
+
+  const sp=document.getElementById("pt-sp")?.value||"Canine";
+  const breed=document.getElementById("pt-breed")?.value||"";
+  const age=document.getElementById("pt-age")?.value||"";
+
+  const prompt=`You are a veterinary radiologist writing a concise ultrasonographic impression for a ${sp}${breed?" ("+breed+")":""}${age?", "+age:""}. Based on these USG findings:
+
+${findings.length?findings.join("\n"):"No significant abnormalities detected."}
+
+Write a concise professional ultrasonographic impression in 3-5 sentences. Include:
+1. Key abnormal findings and their significance
+2. Most likely diagnoses
+3. Recommended next steps
+
+Be direct and clinical. Do not use bullet points. Do not repeat all findings — synthesise them.`;
+
+  try{
+    const res=await fetch("https://api.anthropic.com/v1/messages",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({
+        model:"claude-sonnet-4-6",
+        max_tokens:300,
+        messages:[{role:"user",content:prompt}]
+      })
+    });
+    const data=await res.json();
+    const text=data.content?.[0]?.text||"Unable to generate impression.";
+    box.innerHTML=`<span style="line-height:1.7">${text}</span><br><span style="font-size:9px;color:var(--mgray);margin-top:6px;display:block">✦ AI-generated impression · Clinical correlation recommended</span>`;
+    btn.textContent="✦ Regenerate";
+    btn.disabled=false;
+  }catch(e){
+    box.innerHTML="AI generation failed. Please write impression manually.";
+    btn.textContent="✦ AI Generate";
+    btn.disabled=false;
+  }
 }
 
 function resetAll(){
