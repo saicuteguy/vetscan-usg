@@ -1,4 +1,4 @@
-const CACHE = "pradarsh-v1";
+const CACHE = "pradarsh-v2";
 const FILES = [
   "/pradarsh/",
   "/pradarsh/index.html",
