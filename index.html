@@ -137,7 +137,7 @@ html,body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-ser
 <script>
 const OR=[
 // ─── LIVER ────────────────────────────────────────────────
-{id:"liver",lb:"Liver",ic:"🫀",ps:[
+{id:"liver",lb:"Liver",ic:"[L]",ps:[
   {id:"sz",lb:"Size (vs Costal Arch)",t:"s",op:["Normal","Hepatomegaly — mild","Hepatomegaly — moderate","Hepatomegaly — severe","Microhepatica"],
    df:{"Hepatomegaly — mild":["Reactive hepatopathy","Steroid / glucocorticoid hepatopathy","Early hepatitis","Hepatic lymphoma","Right-sided congestive heart failure"],
        "Hepatomegaly — moderate":["Hepatic lipidosis (cat)","Glycogen storage disease","Vacuolar hepatopathy","Hepatic neoplasia — primary or metastatic","Passive congestion — CHF"],
@@ -166,7 +166,7 @@ const OR=[
   {id:"rem",lb:"Remarks",t:"txt",ph:"Portal hypertension signs, Doppler findings, lobe affected..."},
 ]},
 // ─── GALL BLADDER ─────────────────────────────────────────
-{id:"gb",lb:"Gall Bladder",ic:"🟡",ps:[
+{id:"gb",lb:"Gall Bladder",ic:"[G]",ps:[
   {id:"sz",lb:"GB Size / Distension",t:"s",op:["Normal","Mildly distended","Markedly distended","Small / contracted","Wall oedema / double wall"]},
   {id:"wl",lb:"GB Wall Thickness",t:"s",op:["Normal < 1 mm","Mild thickening 1–3 mm","Marked thickening > 3 mm","Striated / oedematous wall","Focal wall irregularity"],
    df:{"Mild thickening 1–3 mm":["Cholecystitis — acute or chronic","Hypoalbuminaemia — any cause","Adjacent hepatitis / perihepatitis","Anorexia / prolonged fasting"],
@@ -184,7 +184,7 @@ const OR=[
   {id:"rem",lb:"Remarks",t:"txt",ph:"GB wall vascularity, cystic duct appearance..."},
 ]},
 // ─── SPLEEN ───────────────────────────────────────────────
-{id:"spleen",lb:"Spleen",ic:"💧",ps:[
+{id:"spleen",lb:"Spleen",ic:"[S]",ps:[
   {id:"sz",lb:"Size Assessment",t:"s",op:["Normal","Splenomegaly — mild","Splenomegaly — moderate","Splenomegaly — severe","Reduced size / splenectomy"],
    df:{"Splenomegaly — mild":["Reactive splenomegaly — systemic inflammation","Splenic congestion — portal hypertension","Sedation artefact (acepromazine)","Early lymphoid hyperplasia","Immune-mediated haemolytic anaemia"],
        "Splenomegaly — moderate":["Extramedullary haematopoiesis (EMH)","Splenic lymphoma","Haemangiosarcoma (HSA)","Mast cell tumour infiltration (cats)","Systemic histiocytosis"],
@@ -207,7 +207,7 @@ const OR=[
   {id:"rem",lb:"Remarks",t:"txt",ph:"Splenic torsion signs, hilar vascularity..."},
 ]},
 // ─── RIGHT KIDNEY ─────────────────────────────────────────
-{id:"rk",lb:"Right Kidney",ic:"🫘",ps:[
+{id:"rk",lb:"Right Kidney",ic:"[K]",ps:[
   {id:"len",lb:"Length (cm)",t:"n",ph:"cm",ht:"Dog: 5.5–8.5 cm (BW corr.); Cat: 3.0–4.5 cm"},
   {id:"wid",lb:"Width (cm)",t:"n",ph:"cm"},
   {id:"cth",lb:"Cortical Thickness (mm)",t:"n",ph:"mm",ht:"Dog: 4–7 mm; Cat: 2–4 mm"},
@@ -228,7 +228,7 @@ const OR=[
   {id:"rem",lb:"Remarks",t:"txt",ph:"Doppler resistive index, ureteral jet..."},
 ]},
 // ─── LEFT KIDNEY ──────────────────────────────────────────
-{id:"lk",lb:"Left Kidney",ic:"🫘",ps:[
+{id:"lk",lb:"Left Kidney",ic:"[K]",ps:[
   {id:"len",lb:"Length (cm)",t:"n",ph:"cm",ht:"Dog: 5.5–8.5 cm (BW corr.); Cat: 3.0–4.5 cm"},
   {id:"wid",lb:"Width (cm)",t:"n",ph:"cm"},
   {id:"cth",lb:"Cortical Thickness (mm)",t:"n",ph:"mm",ht:"Dog: 4–7 mm; Cat: 2–4 mm"},
@@ -244,7 +244,7 @@ const OR=[
   {id:"rem",lb:"Remarks",t:"txt",ph:"Compare with right kidney, perirenal findings..."},
 ]},
 // ─── URINARY BLADDER ─────────────────────────────────────
-{id:"ub",lb:"Urinary Bladder",ic:"💦",ps:[
+{id:"ub",lb:"Urinary Bladder",ic:"[B]",ps:[
   {id:"dist",lb:"Distension",t:"s",op:["Well distended","Moderately filled","Poorly distended","Over-distended — urethral obstruction","Collapsed — ruptured bladder suspected"]},
   {id:"wl",lb:"Wall Thickness",t:"s",op:["Normal < 2 mm (distended)","Diffuse thickening 2–4 mm","Diffuse marked thickening > 4 mm","Focal thickening — any location","Mass at trigone","Polypoid / pedunculated mass","Irregular nodular wall"],
    df:{"Diffuse thickening 2–4 mm":["Bacterial cystitis — most common","Haemorrhagic cystitis","Feline idiopathic cystitis (FIC) — cats","Cyclophosphamide toxicity"],
@@ -262,7 +262,7 @@ const OR=[
   {id:"rem",lb:"Remarks",t:"txt",ph:"Wall vascularity (Doppler), ureteral jets..."},
 ]},
 // ─── STOMACH ──────────────────────────────────────────────
-{id:"stomach",lb:"Stomach",ic:"🌀",ps:[
+{id:"stomach",lb:"Stomach",ic:"[St]",ps:[
   {id:"wt",lb:"Wall Thickness (mm)",t:"n",ph:"mm",ht:"Dog: < 5 mm; Cat: < 4.5 mm (body); < 7 mm (pylorus)"},
   {id:"wl",lb:"Wall Layering",t:"s",op:["Normal — 5 layers preserved","Focal loss of layering","Diffuse loss of layering","Focal wall thickening — preserved layers","Diffuse wall thickening — preserved layers"],
    df:{"Focal loss of layering":["Gastric carcinoma — adenocarcinoma","High-grade lymphoma — focal","Leiomyosarcoma","Gastric granuloma"],
@@ -276,7 +276,7 @@ const OR=[
   {id:"rem",lb:"Remarks",t:"txt",ph:"Location of lesion, rugal fold assessment..."},
 ]},
 // ─── SMALL INTESTINE ──────────────────────────────────────
-{id:"si",lb:"Small Intestine",ic:"〰️",ps:[
+{id:"si",lb:"Small Intestine",ic:"[SI]",ps:[
   {id:"wt",lb:"Wall Thickness (mm)",t:"n",ph:"mm",ht:"Dog: < 5 mm (jejunum); Cat: duodenum < 3 mm; jejunum < 2.5 mm"},
   {id:"wl",lb:"Wall Layering",t:"s",op:["Normal — 5 distinct layers","Focal loss of layering","Diffuse loss of layering","Diffuse thickening — layers preserved","Focal thickening — layers preserved"],
    df:{"Focal loss of layering":["GI adenocarcinoma","High-grade lymphoma — focal mass","Leiomyosarcoma / GIST","Intussusception wall changes"],
@@ -291,7 +291,7 @@ const OR=[
   {id:"rem",lb:"Remarks",t:"txt",ph:"Affected segment, free fluid, lymph node enlargement..."},
 ]},
 // ─── LARGE INTESTINE ──────────────────────────────────────
-{id:"li",lb:"Large Intestine",ic:"🔄",ps:[
+{id:"li",lb:"Large Intestine",ic:"[LI]",ps:[
   {id:"wt",lb:"Wall Thickness (mm)",t:"n",ph:"mm",ht:"Normal: < 3 mm (distended); < 5 mm (partially filled)"},
   {id:"wl",lb:"Wall Layering",t:"s",op:["Normal","Diffuse thickening — layers preserved","Focal thickening","Focal loss of layering","Mass — colonic"]},
   {id:"ct",lb:"Luminal Content",t:"s",op:["Normal faecal material","Fluid — colitis pattern","Impaction — faecal accumulation","Gas distension","Foreign material"]},
@@ -301,7 +301,7 @@ const OR=[
   {id:"rem",lb:"Remarks",t:"txt",ph:"Rectal assessment, mesenteric involvement..."},
 ]},
 // ─── PANCREAS ─────────────────────────────────────────────
-{id:"pan",lb:"Pancreas",ic:"〰",ps:[
+{id:"pan",lb:"Pancreas",ic:"[Px]",ps:[
   {id:"viz",lb:"Visualisation",t:"s",op:["Adequate — both limbs","Partially visualised — right limb only","Partially visualised — left limb only","Not visualised — gas interference","Not visualised — obese patient"]},
   {id:"rl",lb:"Right Limb Thickness (mm)",t:"n",ph:"mm",ht:"Dog: 6–12 mm; Cat: 4–8 mm"},
   {id:"ll",lb:"Left Limb Thickness (mm)",t:"n",ph:"mm"},
@@ -318,7 +318,7 @@ const OR=[
   {id:"rem",lb:"Remarks",t:"txt",ph:"Extent of peripancreatic involvement, duodenal wall changes..."},
 ]},
 // ─── ADRENAL GLANDS ───────────────────────────────────────
-{id:"adr",lb:"Adrenal Glands",ic:"▲",ps:[
+{id:"adr",lb:"Adrenal Glands",ic:"[Ad]",ps:[
   {id:"rlen",lb:"Right Adrenal Length (cm)",t:"n",ph:"cm",ht:"Dog: 1.0–2.5 cm; Cat: 0.8–1.5 cm"},
   {id:"rwid",lb:"Right Adrenal Width (cm)",t:"n",ph:"cm",ht:"Dog: < 0.76 cm; Cat: < 0.46 cm"},
   {id:"llen",lb:"Left Adrenal Length (cm)",t:"n",ph:"cm"},
@@ -335,7 +335,7 @@ const OR=[
   {id:"rem",lb:"Remarks",t:"txt",ph:"Contralateral adrenal appearance, caudal vena cava..."},
 ]},
 // ─── GI LYMPH NODES ───────────────────────────────────────
-{id:"ln",lb:"Lymph Nodes",ic:"🔵",ps:[
+{id:"ln",lb:"Lymph Nodes",ic:"[Ln]",ps:[
   {id:"ml",lb:"Mesenteric LN — Largest (cm)",t:"n",ph:"cm",ht:"Dog: < 1.0 cm; Cat: < 0.5 cm"},
   {id:"mn",lb:"No. of Enlarged LN",t:"n",ph:"number"},
   {id:"mapp",lb:"Mesenteric LN Appearance",t:"s",op:["Normal — not enlarged","Mildly enlarged — reactive < 1 cm","Moderately enlarged 1–2 cm","Severely enlarged > 2 cm","Multiple clusters — diffuse involvement"],
@@ -351,7 +351,7 @@ const OR=[
   {id:"rem",lb:"Remarks",t:"txt",ph:"Distribution, shape (round vs elongated), local tissue invasion..."},
 ]},
 // ─── UTERUS / OVARIES ──────────────────────────────────────
-{id:"uter",lb:"Uterus / Ovaries",ic:"🔴",ps:[
+{id:"uter",lb:"Uterus / Ovaries",ic:"[Ut]",ps:[
   {id:"sex",lb:"Patient Sex",t:"s",op:["Female — intact","Female — neutered (OHE)","Male — intact (see Prostate tab)","Male — neutered"]},
   {id:"ud",lb:"Uterine Horn Diameter (mm)",t:"n",ph:"mm",ht:"Normal non-gravid: < 8–10 mm; < 5 mm anestrus"},
   {id:"uc",lb:"Uterine Content / Appearance",t:"s",op:["NA","Not visualised — normal neutered","Normal — thin anechoic / not visible","Fluid-filled — anechoic","Fluid-filled — echogenic","Segmental fluid accumulation","Echogenic masses within lumen","Mineralisation — hyperechoic foci","Gravid — foetuses identified","Hyperechoic endometrial pattern"],
@@ -367,7 +367,7 @@ const OR=[
   {id:"rem",lb:"Remarks",t:"txt",ph:"Endometrial thickness, number of foetuses, foetal viability..."},
 ]},
 // ─── PROSTATE / TESTES ────────────────────────────────────
-{id:"pros",lb:"Prostate / Testes",ic:"🔵",ps:[
+{id:"pros",lb:"Prostate / Testes",ic:"[Ln]",ps:[
   {id:"sex",lb:"Patient Sex",t:"s",op:["Male — intact","Male — neutered","Female — N/A"]},
   {id:"ps",lb:"Prostate Size (L × W × H) cm",t:"n",ph:"cm",ht:"Normal: < age-adjusted; > 70% pelvic width = enlarged"},
   {id:"psh",lb:"Prostate Shape / Symmetry",t:"s",op:["NA","Normal — bilobed symmetric","Symmetric enlargement","Asymmetric enlargement","Lobulated contour","Mass — focal"],
@@ -385,7 +385,7 @@ const OR=[
   {id:"rem",lb:"Remarks",t:"txt",ph:"Urethral involvement, sublumbar LN, prostatic vascularity..."},
 ]},
 // ─── PERITONEUM / FREE FLUID ──────────────────────────────
-{id:"peri",lb:"Peritoneum",ic:"🌊",ps:[
+{id:"peri",lb:"Peritoneum",ic:"[Ef]",ps:[
   {id:"ff",lb:"Free Peritoneal Fluid",t:"s",op:["None","Trace — small pockets","Mild — dependent areas","Moderate — multiple sites","Large — generalised ascites","Echogenic fluid — haemoabdomen"],
    df:{"Mild — dependent areas":["Hypoalbuminaemia — hepatic / renal / GI","Peritonitis — early","Right-sided CHF","Uroabdomen (small volume)"],
        "Moderate — multiple sites":["Hypoalbuminaemia","Peritonitis — bacterial / septic","Neoplastic effusion","Cardiac ascites"],
