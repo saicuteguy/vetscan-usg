@@ -2,21 +2,21 @@
   "name": "PRADARSH",
   "short_name": "PRADARSH",
   "description": "Veterinary Abdominal Ultrasonography - Canine & Feline",
-  "start_url": "/pradarsh/",
-  "scope": "/pradarsh/",
+  "start_url": "https://vetkart.github.io/pradarsh/",
+  "scope": "https://vetkart.github.io/pradarsh/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#0d1b3e",
   "theme_color": "#0d1b3e",
   "icons": [
     {
-      "src": "icon.png",
+      "src": "https://vetkart.github.io/pradarsh/icon.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "icon.png",
+      "src": "https://vetkart.github.io/pradarsh/icon.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
